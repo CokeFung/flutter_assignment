@@ -29,6 +29,12 @@ class LoginScreenState extends State<LoginScreen> {
         icon: Icon(Icons.person),
       ),
       onSaved: (val) => _userEmail = val,
+      validator: (userEmail){
+        if(userEmail.isEmpty)
+          return 'กรุณาระบุ user';
+        else
+          _userEmail = userEmail;
+      },
     );
 
     //Field for input password
@@ -39,12 +45,19 @@ class LoginScreenState extends State<LoginScreen> {
       ),
       obscureText: true,
       onSaved: (val) => _userPass = val,
+      validator: (userPass){
+        if(userPass.isEmpty)
+          return 'กรุณาระบุ password';
+        else
+          _userPass = userPass;
+      },
     );
-
+    
     //function for validation input
     void _ValidateInput(){
-      final currentForm = _formKey.currentState;
-      currentForm.save();
+      _formKey.currentState.validate();
+      print(_userEmail);
+      print(_userPass);
       if(_userEmail == 'admin' && _userPass == 'admin'){
         Navigator.pushNamed(context, '/home');
       }
@@ -63,6 +76,7 @@ class LoginScreenState extends State<LoginScreen> {
         );
       }
     }
+    
 
     //Login button
     RaisedButton loginButton = new RaisedButton(
