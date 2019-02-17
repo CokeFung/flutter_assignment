@@ -43,6 +43,8 @@ class LoginScreenState extends State<LoginScreen> {
 
     //function for validation input
     void _ValidateInput(){
+      final currentForm = _formKey.currentState;
+      currentForm.save();
       if(_userEmail == 'admin' && _userPass == 'admin'){
         Navigator.pushNamed(context, '/home');
       }

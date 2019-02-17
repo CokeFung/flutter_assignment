@@ -19,7 +19,7 @@ class RegisterScreenState extends State<RegisterScreen> {
     //Field for input uesername or email
     TextFormField regisEmailField = new TextFormField(
       decoration: InputDecoration(
-        hintText: 'User ID',
+        hintText: 'E-mail',
         icon: Icon(Icons.person),
       ),
       onSaved: (v) => _registerEmail = v,
@@ -47,9 +47,8 @@ class RegisterScreenState extends State<RegisterScreen> {
 
     //function for validation input
     void _ValidateInput(){
-      //print(_registerEmail);
-      //print(_regisPass);
-      //print(_confirmPass);
+      final currentForm = _formKey.currentState;
+      currentForm.save();
       if(_registerEmail == 'admin'){
         _scffoldKey.currentState.showSnackBar(
           SnackBar(
