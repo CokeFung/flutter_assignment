@@ -22,7 +22,39 @@ class HomeScreenState extends State<HomeScreen> {
             Tab( icon: Icon(Icons.settings)),
           ],
           labelColor: Colors.red,
-          unselectedLabelColor: Colors.red,
+        ),
+        appBar: AppBar(
+          title: Text('Home'),
+          centerTitle: true,
+        ),
+        body: TabBarView(
+          children: <Widget>[
+            Container(
+              child: Center(
+                child: Text('Home', style: TextStyle(fontSize: 25, color: Colors.red)),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('Notify', style: TextStyle(fontSize: 25, color: Colors.red)),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('Map', style: TextStyle(fontSize: 25, color: Colors.red)),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('Profile', style: TextStyle(fontSize: 25, color: Colors.red)),
+              ),
+            ),
+            Container(
+              child: Center(
+                child: Text('Setup', style: TextStyle(fontSize: 25, color: Colors.red)),
+              ),
+            ),
+          ],
         ),
       ),
     );
