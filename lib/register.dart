@@ -12,7 +12,7 @@ class RegisterScreenState extends State<RegisterScreen> {
   final _formKey =GlobalKey<FormState>();
   final _scffoldKey = GlobalKey<ScaffoldState>();
   
-  String _regisEmail, _regisPass, _confirmPass;
+  String _registerEmail, _regisPass, _confirmPass;
   
   Widget build(BuildContext context){
     
@@ -22,7 +22,7 @@ class RegisterScreenState extends State<RegisterScreen> {
         hintText: 'User ID',
         icon: Icon(Icons.person),
       ),
-      onSaved: (val) => _regisEmail = val,
+      onSaved: (v) => _registerEmail = v,
     );
 
     //Field for input password
@@ -32,7 +32,7 @@ class RegisterScreenState extends State<RegisterScreen> {
         icon: Icon(Icons.lock),
       ),
       obscureText: true,
-      onSaved: (val) => _regisPass = val,
+      onSaved: (v) => _regisPass = v,
     );
 
     //Field for input confirm password
@@ -42,19 +42,22 @@ class RegisterScreenState extends State<RegisterScreen> {
         icon: Icon(Icons.lock),
       ),
       obscureText: true,
-      onSaved: (val) => _confirmPass = val,
+      onSaved: (v) => _confirmPass = v,
     );
 
     //function for validation input
     void _ValidateInput(){
-      if(_regisEmail == 'admin'){
+      //print(_registerEmail);
+      //print(_regisPass);
+      //print(_confirmPass);
+      if(_registerEmail == 'admin'){
         _scffoldKey.currentState.showSnackBar(
           SnackBar(
             content: new Text('user นี้มีอยู่ในระบบแล้ว',),
           )
         );
       }
-      else if(_regisEmail == '' || _regisPass == '' || _confirmPass == ''){
+      else if(_registerEmail == null || _regisPass == null || _confirmPass == null){
         _scffoldKey.currentState.showSnackBar(
           SnackBar(
             content: new Text('กรุณาระบุข้อมูลให้ครบถ้วน',),
