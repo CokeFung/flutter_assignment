@@ -82,7 +82,7 @@ class LoginScreenState extends State<LoginScreen> {
           ),
         ),
         onPressed: (){
-          Navigator.pushNamed(context, '/login');
+          Navigator.pushNamed(context, '/register');
         },
     );
     Container con = new Container(
@@ -96,7 +96,7 @@ class LoginScreenState extends State<LoginScreen> {
         key: _formKey,
         child: Center(
           child: ListView(
-            padding: EdgeInsets.symmetric(horizontal: 50.0, vertical: 10.0),
+            padding: EdgeInsets.symmetric(horizontal: 75.0, vertical: 150.0),
             children: <Widget>[
               logoImage,
               userEmailField,
